@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+/* Resetting */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #e6f7ff;
+}
+
+.wrapper {
+    max-width: 800px;
+    margin: 50px auto;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.border-bottom-solid {
+    border-bottom: 1px solid black !important;
+}
+
+.wrapper form {
+    padding: 10px 50px;
+}
+
+.wrapper form .form-group {
+    padding-bottom: .5rem;
+}
+
+
+.wrapper form a {
+    color: #333;
+}
+
+.wrapper form .form-control {
+    outline: none;
+    border: none;
+}
+
+.wrapper form .form-control:focus {
+    box-shadow: none;
+}
+
+.wrapper form input[type="text"]::placeholder {
+    color: black;
+    text-decoration: solid;
+}
+
+.wrapper form input[type="text"]:focus::placeholder {
+    color: transparent
+}
+
+input[type="date"] {
+    cursor: pointer;
+}
+
+.wrapper form .label::after {
+    position: absolute;
+    /* background-color: #fff; */
+    top: 5px;
+    left: 0px;
+    font-size: 0.9rem;
+    margin: 0rem 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08rem;
+    font-weight: 600;
+    color: black;
+    transition: all .2s ease-in-out;
+    transform: scale(0);
+}
+
+.wrapper form .label#from::after {
+    content: 'Departure IATA';
+}
+
+.wrapper form .label#to::after {
+    content: 'Arrival IATA';
+}
+
+
+.wrapper form .label#psngr::after {
+    content: 'Traveller(s)';
+}
+
+.wrapper form input[type="text"]:focus~.label::after {
+    top: -15px;
+    left: 0px;
+    transform: scale(1);
+}
+/* accordions */
+#accordionExample {
+    width: 70%;
+}
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 4px rgb(255, 68, 68); /* Start with a low-intensity shadow */
+    }
+    50% {
+        box-shadow: 0 0 10px red; /* Intensify the shadow at 50% */
+    }
+    100% {
+        box-shadow: 0 0 5px rgb(255, 68, 68); /* Return to the low-intensity shadow */
+    }
+}
+
+/* Apply the animation to the button */
+.drop-btn {
+    border: 1px solid red;
+    animation: glow 3s infinite; /* Apply the 'glow' animation for 3 seconds infinitely */
+}
+/* footer */
+.footer {
+    background-color: #333;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 1px;
+    text-align: center;
+    width: 100%;
+}
+
+.footer a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+/* Margin */
+.margin {
+    margin: 1rem 0rem;
+}
+
+/* Media Queries  575.5*/
+@media(max-width: 1000px) {
+    .wrapper {
+        margin: 10px;
+    }
+
+    .wrapper form {
+        padding: 20px;
+    }
+
+    .margin {
+        margin: .2rem 0rem;
+    }
+    #accordionExample {
+        width: 100%;
+        overflow-x: auto;
+    }
+    #iata {
+        flex-direction: column;
+    }
+    #arrival-div {
+        margin-top: 1rem;
+    }
+}

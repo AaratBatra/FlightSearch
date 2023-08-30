@@ -1,0 +1,66 @@
+<%- include("partials/navbar") %>
+<br>
+<h1 class="mb-3 text-dark text-center" style="text-transform: capitalize; text-decoration: solid;">Welcome <%= user.name %></h1>
+<%- include("./flightform"), { airportsData } %>
+
+<% if (flightData) { %>
+    <%- include('partials/flightdata', { flightData }) %>
+  <% } %>
+  <section id="about">
+    <h1 class="mx-auto" style="width: 100%; text-align: center;">About this project and limitations</h1>
+    <div class="accordion mx-auto" id="accordionExample" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button collapsed drop-btn" id="drop" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+              <strong>About this project</strong>
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <strong>Flight Data and more.</strong> Get realtime flights data which is 100% verified and credible. Checkout <a href="https://aviationstack.com/" target="_blank">Aviation API</a>. This API is used by hundreds of flight booking apps and it gives you realtime flight data, history of flight data, airport info, routes info etc. 
+              <h2>Features of this website-</h2><br>
+              <ul>
+                <li>Login and Registration facility via Passport auth, bcrypt and sessions</li>
+                <li>Database connectivity using MongoDB Atlas- a cloud database</li>
+                <li>Hashed Passwords- Admin or any other authority cannot access your passwords and they are protected</li>
+                <li>All routes are protected. Only logged in users can access them</li>
+                <li>Realtime flight data around the world of any airport or city</li>
+                <li>Simple UI for forms and registrations</li>
+                <li>Fast data fetching using express sessions</li>
+                <li>Logout facility for users</li>
+                <li>See more on readme file of my <a href="https://github.com/AaratBatra" target="_blank">GitHub</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              <strong>Limitations</strong> 
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <strong>Any and all APIs are chargable.</strong> When I was searching for an ideal api for this project, I came across plenty of websites that provide <strong>"free"</strong> access but they all charge money in USD for even the basic access functions. Luckily AviationStack API allowed access <strong> only for the Current Date Flights and only for one city to another city. </strong>
+              <br>
+              <h2>This means- </h2>
+              <ul>
+                <li>Flights data for the current date only</li>
+                <li>No realtime booking</li>
+                <li>Overall less potential for this website</li>
+              </ul>
+              <h2>Reason-</h2>
+              This project is totally free of cost. No money was invested as this is an internship project for <a href="https://www.codsoft.in/" target="_blank">CodSoft</a> <br>
+              Secondly, All hotel apis are paid and do not provide any free access. <br>
+              <code>PS- If you have any idea, ping me... I am always ready to scale this project further!</code> 
+            </div>
+          </div>
+        </div>
+    </section>
+    <br>
+    <br>
+<script>
+        const drop = document.getElementById("drop");
+        drop.addEventListener("click", (event)=>{if(drop.classList.contains("drop-btn")){drop.classList.remove("drop-btn")}else{drop.classList.add("drop-btn")}});
+</script>
+<%- include("partials/footer.ejs") %>

@@ -1,0 +1,37 @@
+<div class="table-responsive px-2">
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Airline</th>
+        <th scope="col">Flight Number</th>
+        <th scope="col">Flight Status</th>
+        <th scope="col">Departure Airport</th>
+        <th scope="col">Arrival Airport</th>
+        <th scope="col">Departure Time</th>
+        <th scope="col">Arrival Time</th>
+        <th scope="col">Delay of Departure</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% if (flightData.length !== 0) { %>
+        <h2 class="text-center text-success"><%= flightData.length %> RESULTS</h2>
+        <% flightData.forEach((flight) => { %>
+      <tr class="table-active">
+        <th scope="row"><%= flight.airline.name %></th>
+        <td><%= flight.flight.number %></td>
+        <td><%= flight.flight_status %></td>
+        <td><%= flight.departure.airport %><%= flight.departure.iata %></td>
+        <td><%= flight.arrival.airport %><%= flight.arrival.iata %></td>
+        <td><%= flight.departure.scheduled %></td>
+        <td><%= flight.arrival.scheduled %></td>
+        <td><%= flight.departure.delay || 0 %> minutes</td>
+      </tr>
+      <% }); %>
+      <% } else { %>
+        <h2 class="text-center" style="color: red;">No Flights Available</h2>
+      <% } %>
+    </tbody>
+</table>
+</div>
+<br>
+<br>

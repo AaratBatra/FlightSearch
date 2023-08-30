@@ -1,0 +1,13 @@
+API_KEY=550ff6d2563ba35c109fad9f708fe93e
+MONGODB_URI=mongodb+srv://aarat:aaratconnectsronin114@ronin.wwzmkzr.mongodb.net/?retryWrites=true&w=majority
+
+Future Steps-
+1. Upload full project on github and create a video on this also fill the gform
+2. Make a tribute page on someone and do the same thing 
+
+More future steps-
+1. Add a book now button next to each flight and once the user clicks it, all the data gets stored in the mongo db 
+2. Create a dashboard in which it will show all the bookings based on the user's unique id.
+3. Fully understand MongoDb, mongoose, atlas and passport auth with connection flash 
+4. Update linkedIn projects section with this and 2-3 more projects that are visually appealing and hosted
+5. Learn about API, REST, Git and GitHub, Deployment and sign-in with google and cookies

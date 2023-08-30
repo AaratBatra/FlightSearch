@@ -1,0 +1,99 @@
+<div class="wrapper" style="background-color: white">
+    <h2 class="text-center">Search Flights <i class="fa-solid fa-plane"></i></h2>
+    <form action="/home" method="post">
+        <div class="form-group d-flex margin" id="iata" style="justify-content: space-between;">
+            <div class="me-sm-1 my-sm-0 my-4 position-relative">
+                <div class="d-flex align-items-center flex-fill border-bottom-solid">
+                <span class="fa-solid fa-plane-departure text-muted"></span>
+                <input type="text" id="departure" name="departure" required placeholder="Departure IATA" class="form-control">
+                <div class="label" id="from"></div>
+                </div>
+                <br>
+                <select id="departureSelect" class="form-select">
+                    <option value="">International</option>
+                    <% airportsData.airports.forEach((airport) => { %>
+                        <option value="<%= airport.IATA_code %>"><%= airport.city_name %></option>
+                    <% }); %>
+                </select>
+            </div>
+            <div class="ms-sm-1 my-sm-0 my-4 position-relative" id="arrival-div">
+                <div class="d-flex align-items-center flex-fill border-bottom-solid">
+                <span class="fa-solid fa-plane-arrival text-muted"></span>
+                <input type="text" id="arrival" name="arrival" required placeholder="Arrival IATA" class="form-control">
+                <div class="label" id="to"></div>
+                </div>
+                <br>
+                <div class="d-flex align-items-center">
+                <select id="arrivalSelect" class="form-select">
+                    <option value="">International</option>
+                    <% airportsData.airports.forEach((airport) => { %>
+                        <option value="<%= airport.IATA_code %>"><%= airport.city_name %></option>
+                    <% }); %>
+                </select></div><br>
+                
+            </div>
+        </div>
+        <div class="form-group d-flex margin" style="justify-content: center;">
+            <h4>Only current date option is available <a href="#about" class="btn btn-primary btn-sm" style="color: white;">See more</a></h4>
+        </div>
+        <div class="form-group">
+                <label for="exampleSelect1" class="form-label mt-4"><strong>Traveller(s)</strong></label> <span class="fas fa-users text-muted mt-4"></span>
+                <select class="form-select" id="passengers" name="passengers">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+            <div class="label" id="psngr"></div>
+            
+        </div>
+        <div class="form-group">
+            <label for="flightStatus" class="form-label mt-4"><strong>Flight Status</strong></label> <span class="fas fa-users text-muted mt-4"></span>
+            <select class="form-select" id="flightStatus" name="flightStatus">
+              <option>active</option>
+              <option>scheduled</option>
+              <option>landed</option>
+              <option>cancelled</option>
+            </select>
+        <div class="label" id="psngr"></div>
+        
+    </div>
+        <div class="form-group my-3">
+            <button id="submit" class="btn btn-primary rounded-0 d-flex justify-content-center text-center p-3 w-100" type="submit">Search</button>
+        </div>
+    </form>
+</div>
+<br>
+<script>
+  const arrivalInput = document.getElementById("arrival");
+  const arrivalSelect = document.getElementById("arrivalSelect");
+  const departureInput = document.getElementById("departure");
+  const departureSelect = document.getElementById("departureSelect");
+
+  arrivalSelect.addEventListener("change", function () {
+    const selectedOption = arrivalSelect.options[arrivalSelect.selectedIndex];
+    
+    if (selectedOption.value === "") {
+      // If "International" is selected, enable the input and remove its value.
+      // arrivalInput.removeAttribute("disabled");
+      arrivalInput.value = "";
+    } else {
+      // If a city is selected, disable the input and set its value to the selected city's IATA code.
+      // arrivalInput.setAttribute("disabled", "disabled");
+      arrivalInput.value = selectedOption.value;
+    }
+  });
+  departureSelect.addEventListener("change", function () {
+    const selectedOption = departureSelect.options[departureSelect.selectedIndex];
+    
+    if (selectedOption.value === "") {
+      // If "International" is selected, enable the input and remove its value.
+      // departureInput.removeAttribute("disabled");
+      departureInput.value = "";
+    } else {
+      // If a city is selected, disable the input and set its value to the selected city's IATA code.
+      // departureInput.setAttribute("disabled", "disabled");
+      departureInput.value = selectedOption.value;
+    }
+  });
+</script>
