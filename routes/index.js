@@ -5,7 +5,7 @@ const axios = require('axios');
 const path = require('path');
 const fs = require('fs');
 const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth');
-const API_URL = 'http://api.aviationstack.com/v1/flights'
+const API_URL = 'http://api.aviationstack.com/v1/flights';
 // Welcome Page
 router.get('/', forwardAuthenticated, (req, res) => res.render('welcome'));
 router.use(express.json());
@@ -23,7 +23,6 @@ router.get('/home', ensureAuthenticated, (req, res) => {
   })
 });
 // Flight form- this route will handle the form data entered by the user and show the flight info from the json received in the same page
- 
 
 router.post('/home', ensureAuthenticated, async (req, res) => {
   console.log(req.body);
@@ -50,7 +49,6 @@ router.post('/home', ensureAuthenticated, async (req, res) => {
     //res.status(404).send(error.message);
     console.log(error.message)
   }
-})
+});
 
 module.exports = router;
-  
