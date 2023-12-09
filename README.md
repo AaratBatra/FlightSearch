@@ -1,8 +1,8 @@
-# Travel Booking System- Implementing flight search, CodSoft Internship Level 2 Task 2 of Web Development
+# Travel Booking System- Implementing flight search
 
 ## Introduction
 
-This is a Travel Booking System that allows users to search for real-time flights and provides authentication functionality. It's a Level 2 task as part of the CodSoft internship.
+This is a Travel Booking System that allows users to search for real-time flights and provides authentication functionality.
 
 ## Project Description
 
